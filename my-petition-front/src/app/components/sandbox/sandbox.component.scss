@@ -1,0 +1,12 @@
+@import "../../styles/styles";
+
+#sandboxView{
+
+}
+
+.box {
+  background-color: $colorThemeSecondary;
+  color: $colorThemePrimary;
+  margin: 0.5 * $spacing 0;
+  padding: $spacing;
+}

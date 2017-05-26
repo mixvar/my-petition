@@ -1,0 +1,24 @@
+@import '../../styles/styles';
+@import '../app.component';
+
+#headerView {
+  min-height: $headerHeight;
+  background-color: $colorThemePrimary;
+  color: $colorThemeSecondary;
+
+  padding: 0 $spacing;
+  font-size: 40px;
+
+  position: relative;
+  z-index: 30;
+  @include simpleShadowBot();
+}
+
+#contentContainer {
+  min-height: $headerHeight;
+}
+
+a {
+  text-decoration: none;
+  color: $colorThemeSecondary;
+}

@@ -1,0 +1,19 @@
+@import '../../styles/styles';
+@import '../app.component';
+
+#footerView {
+  min-height: $footerHeight;
+  padding: $spacing;
+
+  background-color: $colorThemeSecondary;
+  color: $colorThemeAccent;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+a {
+  text-decoration: none;
+  color: $colorThemeAccent;
+}
