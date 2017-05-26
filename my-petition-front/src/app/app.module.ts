@@ -16,6 +16,7 @@ import {PetitionDetailsComponent} from './components/petition-details/petition-d
 import {NewPetitionComponent} from './components/new-petition/new-petition.component';
 import {PetitionTileComponent} from './components/petitions/petition-tile/petition-tile.component';
 import {SandboxComponent} from './components/sandbox/sandbox.component';
+import {UserService} from './services/user.service';
 
 
 @NgModule({
@@ -41,7 +42,9 @@ import {SandboxComponent} from './components/sandbox/sandbox.component';
     MdCheckboxModule,
     MdInputModule,
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
