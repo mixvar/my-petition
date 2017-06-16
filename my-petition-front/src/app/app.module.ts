@@ -16,7 +16,11 @@ import {PetitionDetailsComponent} from './components/petition-details/petition-d
 import {NewPetitionComponent} from './components/new-petition/new-petition.component';
 import {PetitionTileComponent} from './components/petitions/petition-tile/petition-tile.component';
 import {SandboxComponent} from './components/sandbox/sandbox.component';
-import {UserService} from './services/user.service';
+import {PetitionsService} from './services/petitions/petitions.service';
+import IPetitionsService from './services/petitions/petitions.service.interface';
+import {UserService} from './services/user/user.service';
+import IUserService from './services/user/user.service.interface';
+
 
 
 @NgModule({
@@ -43,7 +47,8 @@ import {UserService} from './services/user.service';
     MdInputModule,
   ],
   providers: [
-    UserService,
+    {provide: IUserService, useClass: UserService},
+    {provide: IPetitionsService, useClass: PetitionsService},
   ],
   bootstrap: [AppComponent]
 })

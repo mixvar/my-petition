@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../services/user.service';
+import IUserService from '../../services/user/user.service.interface';
 
 @Component({
   selector: 'app-header',
@@ -8,27 +8,19 @@ import {UserService} from '../../services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private currentStatus: string;
   private isLoggedIn: boolean;
-  private userData: any;
+  private userName: string;
+  private fetchingUserState: boolean;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: IUserService) {
   }
 
   ngOnInit() {
-    this.userService.authStatus
-      .subscribe(status => {
-        console.log(`new status - '${status}'`);
-        this.currentStatus = status;
-        this.isLoggedIn = (status === 'connected');
-        if (this.isLoggedIn) {
-          this.userService.getUserData()
-            .then(resp => {
-              console.log(resp);
-              this.userData = resp;
-            });
-        }
-      });
+    this.userService.userState.subscribe(userState => { // TODO clean up infinite observable
+      this.isLoggedIn = userState.isLoggedIn;
+      this.userName = userState.userName;
+      this.fetchingUserState = userState.fetching;
+    });
   }
 
   onLogin(): void {

@@ -7,13 +7,19 @@
       </div>
       <div class="col-xs-6 hRight">
 
-        <div *ngIf="!isLoggedIn">
-          <button md-raised-button color="fb" (click)="onLogin()">
-            Continue with Facebook!
-          </button>
+
+        <div *ngIf="(fetchingUserState)">
+          <span class="subHeader">Loading...</span>
         </div>
-        <div *ngIf="(isLoggedIn && userData)">
-          <span class="subHeader">{{userData.name}}</span>
+        <div *ngIf="(!fetchingUserState)">
+          <div *ngIf="!isLoggedIn">
+            <button md-raised-button color="fb" (click)="onLogin()">
+              Continue with Facebook!
+            </button>
+          </div>
+          <div *ngIf="(isLoggedIn)">
+            <span *ngIf="(userName)" class="subHeader">{{userName}}</span>
+          </div>
         </div>
 
       </div>
