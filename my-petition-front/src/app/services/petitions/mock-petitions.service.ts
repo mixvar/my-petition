@@ -1,19 +1,22 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/delay';
+import {Http, Response} from '@angular/http';
 import IPetitionsService from './petitions.service.interface';
 import Petition from '../../model/petition';
 import PetitionDetails from '../../model/petition-details';
 
 
 @Injectable()
-export class PetitionsService implements IPetitionsService {
+export class MockPetitionsService implements IPetitionsService {
 
-  constructor() {
+  constructor(private http: Http) {
   }
 
-  getPetitions(): Observable<Petition> {
-    // TODO
-    return undefined;
+  getPetitions(): Observable<Petition[]> {
+    return this.http.get('assets/mocks/all-petitions.json')
+      .map((response: Response) => response.json())
+      .delay(1500);
   }
 
   getPetitionDetails(petitionId: number): Observable<PetitionDetails> {

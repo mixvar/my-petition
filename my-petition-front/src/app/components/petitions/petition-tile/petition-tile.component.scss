@@ -1,0 +1,39 @@
+@import '../../../styles/styles';
+
+$tileHeight: 200px;
+
+#petitionTileComponent {
+  padding: $spacing;
+  text-align: center;
+  height: $tileHeight;
+  background: $colorThemeSecondary;
+  color: $colorThemePrimary;
+  cursor: pointer;
+  opacity: 0.88;
+  transition: all 300ms ease-in-out;
+  @include shadow(2px);
+  position: relative;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 300ms ease-in-out;
+    opacity: 0;
+    @include shadow(4px);
+    z-index: 1;
+  }
+  &:hover {
+    opacity: 1;
+    transform: scale(1.075);
+    position: relative;
+    z-index: 2;
+    &:after {
+      opacity: 1;
+    }
+  }
+}

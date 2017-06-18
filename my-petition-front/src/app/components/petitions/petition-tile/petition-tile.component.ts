@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import Petition from '../../../model/petition';
 
 @Component({
   selector: 'app-petition-tile',
   templateUrl: './petition-tile.component.html',
   styleUrls: ['./petition-tile.component.scss']
 })
-export class PetitionTileComponent implements OnInit {
+export class PetitionTileComponent {
 
-  constructor() { }
+  @Input()
+  private petition: Petition;
 
-  ngOnInit() {
+  constructor() {
   }
 
 }

@@ -16,11 +16,11 @@ import {PetitionDetailsComponent} from './components/petition-details/petition-d
 import {NewPetitionComponent} from './components/new-petition/new-petition.component';
 import {PetitionTileComponent} from './components/petitions/petition-tile/petition-tile.component';
 import {SandboxComponent} from './components/sandbox/sandbox.component';
-import {PetitionsService} from './services/petitions/petitions.service';
 import IPetitionsService from './services/petitions/petitions.service.interface';
+import {MockPetitionsService} from './services/petitions/mock-petitions.service';
+import {PetitionsService} from './services/petitions/petitions.service';
 import {UserService} from './services/user/user.service';
 import IUserService from './services/user/user.service.interface';
-
 
 
 @NgModule({
@@ -48,7 +48,7 @@ import IUserService from './services/user/user.service.interface';
   ],
   providers: [
     {provide: IUserService, useClass: UserService},
-    {provide: IPetitionsService, useClass: PetitionsService},
+    {provide: IPetitionsService, useClass: MockPetitionsService},
   ],
   bootstrap: [AppComponent]
 })

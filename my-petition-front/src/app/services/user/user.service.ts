@@ -7,7 +7,7 @@ import IUserService from './user.service.interface';
 import {AuthResponse} from '../../../../node_modules/ngx-facebook/dist/esm/models/auth-response';
 
 
-const initParams: InitParams = {
+const fbInitParams: InitParams = {
   appId: '125654228008369',
   xfbml: true,
   version: 'v2.9',
@@ -20,19 +20,13 @@ const initialUserState: UserState = {
 };
 
 @Injectable()
-export class UserService extends IUserService {
+export class UserService implements IUserService {
 
   public userState: ReplaySubject<UserState> = new ReplaySubject(1);
   private currentUserState: UserState;
 
   constructor(private facebookService: FacebookService) {
-    super();
-    this.userState.next(initialUserState);
-    this.userState.subscribe(newState => {
-      console.log('new userState: ', newState);
-      this.currentUserState = newState;
-    });
-    this.initFb();
+    this.init();
   }
 
   public login(): void {
@@ -56,8 +50,17 @@ export class UserService extends IUserService {
     // TODO
   }
 
+  private init(): void {
+    this.userState.next(initialUserState);
+    this.userState.subscribe(newState => {
+      console.log('new userState: ', newState);
+      this.currentUserState = newState;
+    });
+    this.initFb();
+  }
+
   private initFb(): void {
-    this.facebookService.init(initParams)
+    this.facebookService.init(fbInitParams)
       .then((response: LoginResponse) => {
         console.log('initFb', response);
         this.updateStatus();
