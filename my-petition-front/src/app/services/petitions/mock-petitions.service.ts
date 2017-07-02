@@ -19,7 +19,7 @@ export class MockPetitionsService implements IPetitionsService {
     return this.http.get('assets/mocks/all-petitions.json')
       .map((response: Response) => response.json())
       .map(res => plainToClass(Petition, res as Object[]))
-      .delay(1500);
+      .delay(1000);
   }
 
   getPetitionDetails(petitionId: number): Observable<PetitionDetails> {

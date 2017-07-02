@@ -7,10 +7,6 @@
       </div>
       <div class="col-xs-6 hRight">
 
-
-        <div *ngIf="(fetchingUserState)">
-          <span class="subHeader">Loading...</span>
-        </div>
         <div *ngIf="(!fetchingUserState)">
           <div *ngIf="!isLoggedIn">
             <button md-raised-button color="fb" (click)="onLogin()">
@@ -25,5 +21,7 @@
       </div>
     </div>
   </div>
+
+  <app-loader id="loader" [loading]="fetchingUserState" color="accent" [scale]="0.5"></app-loader>
 
 </div>

@@ -3,7 +3,7 @@
 @import '../app.component';
 
 #headerView {
-  min-height: $headerHeight;
+  height: $headerHeight;
   background-color: $colorThemePrimary;
   color: $colorThemeSecondary;
 

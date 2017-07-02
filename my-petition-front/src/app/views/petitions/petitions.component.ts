@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import Petition from '../../model/petition';
@@ -11,22 +11,26 @@ import Petition from '../../model/petition';
 })
 export class PetitionsComponent implements OnInit {
 
-  private petitions: Petition[];
-  private error: any;
+  petitions: Petition[];
+  error: any;
+  fetching = false;
 
   constructor(private petitionService: IPetitionsService) {
   }
 
   ngOnInit() {
+    this.fetching = true;
     this.petitionService.getPetitions()
       .subscribe(
         (petitions: Petition[]) => {
           this.petitions = petitions;
           console.log('petitions fetched successfully!', petitions);
+          this.fetching = false;
         },
         (error) => {
           this.error = error;
           console.warn('error while fetching petitions!', error);
+          this.fetching = false;
         }
       );
   }

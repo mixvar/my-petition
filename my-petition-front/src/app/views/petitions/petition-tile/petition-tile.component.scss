@@ -37,15 +37,18 @@ $tileHeight: 200px;
       opacity: 1;
     }
     .title {
-      font-size: $fontSizeHeader;
+      width: 100%;
+      font-size: $fontSizeSubHeader;
     }
   }
 
   .title {
     color: $colorThemePrimary;
-    font-size: $fontSizeSubHeader;
-    line-height: $fontSizeHeader;
-    transition: font-size 300ms ease-in-out;
+    font-size: $fontSize;
+    line-height: $fontSizeSubHeader;
+    width: 75%;
+    margin: 0 auto;
+    transition: all 300ms ease-in-out;
   }
 
   .date {

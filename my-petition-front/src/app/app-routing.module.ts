@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {PetitionsComponent} from './components/petitions/petitions.component';
-import {PetitionDetailsComponent} from './components/petition-details/petition-details.component';
-import {NewPetitionComponent} from './components/new-petition/new-petition.component';
-import {SandboxComponent} from './components/sandbox/sandbox.component';
+import {PetitionsComponent} from './views/petitions/petitions.component';
+import {PetitionDetailsComponent} from './views/petition-details/petition-details.component';
+import {NewPetitionComponent} from './views/new-petition/new-petition.component';
+import {SandboxComponent} from './views/sandbox/sandbox.component';
 
 
 const routes: Routes = [

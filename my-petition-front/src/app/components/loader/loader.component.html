@@ -1,0 +1,5 @@
+<div>
+  <div id="loaderComponent" *ngIf="loading" [@fadeInOut]="'in'">
+    <md-spinner id="loader" [color]="color" [style.transform]="getScaleStyle()" ></md-spinner>
+  </div>
+</div>
