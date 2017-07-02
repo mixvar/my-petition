@@ -2,6 +2,7 @@
   {
     "Id": 1,
     "Title": "petition1",
+    "Addressee": "Vladimir Putin",
     "CreationDate": 1495813911285,
     "SignCount": 3,
     "Tags": [
@@ -17,6 +18,7 @@
   {
     "Id": 2,
     "Title": "petition2",
+    "Addressee": "Vladimir Putin",
     "CreationDate": 1495813911285,
     "SignCount": 0,
     "Tags": [
@@ -32,6 +34,7 @@
   {
     "Id": 3,
     "Title": "loooooong petition name",
+    "Addressee": "Donal Trump",
     "CreationDate": 1495813911285,
     "SignCount": 7,
     "Tags": [
@@ -47,6 +50,7 @@
   {
     "Id": 4,
     "Title": "petition4",
+    "Addressee": "Bubak",
     "CreationDate": 1495813911285,
     "SignCount": 1,
     "Tags": [
@@ -61,6 +65,7 @@
   {
     "Id": 5,
     "Title": "reeeeeaaaalllyyy looooooooong petition5 naaaame",
+    "Addressee": "Jarosław Kaczyński",
     "CreationDate": 1495813911285,
     "SignCount": 1,
     "Tags": [
@@ -76,17 +81,14 @@
   },
   {
     "Id": 6,
-    "Title": "petition6",
+    "Title": "Ocalmy zabytkowe hangary i stwórzmy Muzeum Lotnictwa we Wrocławiu",
+    "Addressee": "Oddział Terenowy Agencji Mmienia Wojskowego we Wrocławiu",
     "CreationDate": 1495813911285,
     "SignCount": 4,
     "Tags": [
       "#ng2",
-      "#teeeest",
+      "#teeeeeeeeeeeeeeeeeeeeeest",
       "#teeeeest",
-      "#teeeest",
-      "#teeeest",
-      "#teeeest",
-      "#teeeest",
       "#teeeest"
     ],
     "Owner": {

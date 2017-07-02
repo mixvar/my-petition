@@ -10,6 +10,9 @@ class Petition {
   @Expose({ name: 'Title' })
   public title: string;
 
+  @Expose({ name: 'Addressee' })
+  public addressee: string;
+
   @Expose({ name: 'CreationDate' })
   @Type(() => Date)
   public creationDate: Date;

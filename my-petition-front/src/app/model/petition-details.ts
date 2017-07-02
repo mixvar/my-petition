@@ -5,11 +5,14 @@ import Person from './person';
 
 class PetitionDetails extends Petition {
 
+  @Expose({ name: 'Description' })
+  public description: string;
+
   @Expose({ name: 'Text' })
   public text: string;
 
-  @Expose({ name: 'ImageUrl' })
-  public imageUrl?: string;
+  @Expose({ name: 'ImageBase64' })
+  public imageBase64?: string;
 
   @Expose({ name: 'Signs' })
   @Type(() => Person)

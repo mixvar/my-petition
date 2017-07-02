@@ -1,12 +1,18 @@
 //noinspection CssUnknownTarget
 @import '~app/styles/styles';
 
-$tileHeight: 200px;
+$tileHeight: 220px;
+$tileHeadHeight: $fontSizeSubHeader;
+$tileTailHeight: $fontSize;
+$tileBodyHeight: calc(#{$tileHeight} - #{$tileHeadHeight} - #{$tileTailHeight});
 
 #petitionTileComponent {
+  box-sizing: content-box;
   padding: $spacing;
   text-align: center;
   height: $tileHeight;
+  max-width: 450px;
+  margin: 0 auto;
   background: $colorThemeSecondary;
   color: $colorThemeAccent;
   cursor: pointer;
@@ -28,6 +34,7 @@ $tileHeight: 200px;
     @include shadow(4px);
     z-index: 1;
   }
+
   &:hover {
     opacity: 1;
     transform: scale(1.075);
@@ -36,34 +43,33 @@ $tileHeight: 200px;
     &:after {
       opacity: 1;
     }
-    .title {
+    .head {
       width: 100%;
-      font-size: $fontSizeSubHeader;
+      font-size: $tileHeadHeight;
     }
   }
 
-  .title {
+  .head {
     color: $colorThemePrimary;
     font-size: $fontSize;
-    line-height: $fontSizeSubHeader;
+    line-height: $tileHeadHeight;
+    height: $tileHeadHeight;
     width: 75%;
     margin: 0 auto;
     transition: all 300ms ease-in-out;
   }
 
-  .date {
-    margin-top: $spacing/2;
+  .body {
+    height: $tileBodyHeight;
   }
-
+  .addressee {
+    margin-top: 2*$spacing;
+  }
   .tags {
-    margin-top: 4*$spacing;
+    margin-top: $spacing;
   }
 
-  .signs {
-    position: absolute;
-    bottom: $spacing;
-    left: 0;
-    width: 100%;
+  .tail {
   }
 
 }
