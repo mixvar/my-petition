@@ -1,3 +1,16 @@
 <div id="petitionTileComponent">
-  {{petition.Title}}
+
+  <div class="title">
+    {{petition.title}}
+  </div>
+  <div class="date">
+    created on {{petition.creationDate | date:'y-MM-dd'}}
+  </div>
+  <div class="tags">
+    {{petition.getFormattedTags()}}
+  </div>
+  <div class="signs">
+    {{petition.getFormattedSignsCount()}}
+  </div>
+
 </div>

@@ -22,7 +22,7 @@ const initialUserState: UserState = {
 @Injectable()
 export class UserService implements IUserService {
 
-  public userState: ReplaySubject<UserState> = new ReplaySubject(1);
+  public userState_: ReplaySubject<UserState> = new ReplaySubject(1);
   private currentUserState: UserState;
 
   constructor(private facebookService: FacebookService) {
@@ -51,8 +51,8 @@ export class UserService implements IUserService {
   }
 
   private init(): void {
-    this.userState.next(initialUserState);
-    this.userState.subscribe(newState => {
+    this.userState_.next(initialUserState);
+    this.userState_.subscribe(newState => {
       console.log('new userState: ', newState);
       this.currentUserState = newState;
     });
@@ -69,7 +69,7 @@ export class UserService implements IUserService {
   }
 
   private updateStatus(): void {
-    this.userState.next({...this.currentUserState, fetching: true});
+    this.userState_.next({...this.currentUserState, fetching: true});
 
     this.facebookService.getLoginStatus()
       .then((response: LoginResponse) => {
@@ -94,10 +94,10 @@ export class UserService implements IUserService {
         accessToken: auth.accessToken,
         fetching: true,
       };
-      this.userState.next(state);
+      this.userState_.next(state);
       this.getUserData();
     } else {
-      this.userState.next({
+      this.userState_.next({
         status,
         isLoggedIn: false,
         fetching: false,
@@ -109,7 +109,7 @@ export class UserService implements IUserService {
     this.facebookService.api('/me')
       .then(userData => {
         console.log('userData fetched successfully!', userData);
-        this.userState.next({
+        this.userState_.next({
           ...this.currentUserState,
           userName: userData.name,
           fetching: false,

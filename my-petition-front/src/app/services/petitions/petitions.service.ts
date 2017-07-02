@@ -11,7 +11,7 @@ export class PetitionsService implements IPetitionsService {
   constructor() {
   }
 
-  getPetitions(): Observable<Petition> {
+  getPetitions(): Observable<Petition[]> {
     // TODO
     return undefined;
   }

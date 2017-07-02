@@ -4,9 +4,10 @@
 
     <div id="tilesContainer" class="row">
       <div *ngFor="let petition of petitions"
-           class="col col-xs-12 col-sm-6 col-md-4"
-      >
-        <app-petition-tile [petition]="petition"></app-petition-tile>
+           class="col col-xs-12 col-sm-6 col-md-4">
+        <app-petition-tile [petition]="petition"
+                           [routerLink]="['/petitions', petition.id]">
+        </app-petition-tile>
       </div>
     </div>
 

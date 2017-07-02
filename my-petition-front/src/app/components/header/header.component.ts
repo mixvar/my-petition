@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import IUserService from '../../services/user/user.service.interface';
 
 @Component({
@@ -16,11 +16,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.userState.subscribe(userState => { // TODO clean up infinite observable
-      this.isLoggedIn = userState.isLoggedIn;
-      this.userName = userState.userName;
-      this.fetchingUserState = userState.fetching;
-    });
+    this.userService.userState_
+      .subscribe(userState => { // TODO clean up infinite observable
+        this.isLoggedIn = userState.isLoggedIn;
+        this.userName = userState.userName;
+        this.fetchingUserState = userState.fetching;
+      });
   }
 
   onLogin(): void {

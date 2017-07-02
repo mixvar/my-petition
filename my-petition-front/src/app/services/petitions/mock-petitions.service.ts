@@ -1,7 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
-import {Http, Response} from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { plainToClass } from 'class-transformer';
+
 import IPetitionsService from './petitions.service.interface';
 import Petition from '../../model/petition';
 import PetitionDetails from '../../model/petition-details';
@@ -16,6 +18,7 @@ export class MockPetitionsService implements IPetitionsService {
   getPetitions(): Observable<Petition[]> {
     return this.http.get('assets/mocks/all-petitions.json')
       .map((response: Response) => response.json())
+      .map(res => plainToClass(Petition, res as Object[]))
       .delay(1500);
   }
 

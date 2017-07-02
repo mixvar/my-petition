@@ -4,7 +4,7 @@ import UserState from '../../model/user-state';
 
 abstract class IUserService {
 
-  abstract userState: Observable<UserState>;
+  abstract userState_: Observable<UserState>;
 
   abstract login(): void;
 

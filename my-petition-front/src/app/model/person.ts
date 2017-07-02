@@ -1,8 +1,16 @@
+import { Expose } from 'class-transformer';
 
-interface Person {
-  Id: number;
-  FbId: number; // TODO should be string
-  Name: string;
+
+class Person {
+
+  @Expose({ name: 'Id' })
+  public id: number;
+
+  @Expose({ name: 'FbId' })
+  public fbId: number; // TODO should be string
+
+  @Expose({ name: 'Name' })
+  public name: string;
 }
 
 export default Person;

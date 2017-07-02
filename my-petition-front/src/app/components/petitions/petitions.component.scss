@@ -1,9 +1,11 @@
-@import "../../styles/styles";
+//noinspection CssUnknownTarget
+@import '~app/styles/styles';
 
 #petitionsView {
+  padding: 0 $spacing;
 
   #tilesContainer {
-    margin: 0 $spacing;
+
   }
 
 }

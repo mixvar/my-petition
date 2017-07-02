@@ -18,7 +18,7 @@
     "Id": 2,
     "Title": "petition2",
     "CreationDate": 1495813911285,
-    "SignCount": 5,
+    "SignCount": 0,
     "Tags": [
       "#lol",
       "#test"
@@ -48,10 +48,9 @@
     "Id": 4,
     "Title": "petition4",
     "CreationDate": 1495813911285,
-    "SignCount": 8,
+    "SignCount": 1,
     "Tags": [
-      "#lol",
-      "#test"
+      "#lol"
     ],
     "Owner": {
       "Id": 1,
@@ -66,7 +65,8 @@
     "SignCount": 1,
     "Tags": [
       "#lol",
-      "#TAI"
+      "#TAI",
+      "#YOLO"
     ],
     "Owner": {
       "Id": 2,

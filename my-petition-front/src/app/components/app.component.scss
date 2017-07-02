@@ -1,7 +1,8 @@
-@import "../styles/styles";
+//noinspection CssUnknownTarget
+@import '~app/styles/styles';
 
 $footerHeight: 75px;
-$headerHeight: 125px;
+$headerHeight: 100px;
 $bodyHeight: calc(100vh - #{$headerHeight} - #{$footerHeight});
 
 #appBody {
