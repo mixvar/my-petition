@@ -23,8 +23,10 @@ export class MockPetitionsService implements IPetitionsService {
   }
 
   getPetitionDetails(petitionId: number): Observable<PetitionDetails> {
-    // TODO
-    return undefined;
+    return this.http.get(`assets/mocks/petition-${petitionId}.json`)
+      .map((response: Response) => response.json())
+      .map(res => plainToClass(PetitionDetails, res as Object))
+      .delay(1000);
   }
 
 }

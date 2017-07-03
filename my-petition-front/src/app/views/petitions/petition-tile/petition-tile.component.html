@@ -1,18 +1,5 @@
 <div id="petitionTileComponent">
 
-  <!--<div class="title">-->
-  <!--{{petition.title}}-->
-  <!--</div>-->
-  <!--<div class="addressee">-->
-  <!--to {{petition.addressee}}-->
-  <!--</div>-->
-  <!--<div class="tags">-->
-  <!--{{petition.getFormattedTags()}}-->
-  <!--</div>-->
-  <!--<div class="signs">-->
-  <!--{{petition.getFormattedSignsCount()}}-->
-  <!--</div>-->
-
   <div class="head">
     {{petition.title}}
   </div>
@@ -20,7 +7,7 @@
   <div class="body row middle-xs">
     <div class="col-xs-12">
       <div class="addressee">
-        to {{petition.addressee}}
+        <span class="light">to</span> {{petition.addressee}}
       </div>
       <div class="tags">
         {{petition.getFormattedTags()}}

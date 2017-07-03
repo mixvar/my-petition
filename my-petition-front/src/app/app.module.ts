@@ -8,7 +8,8 @@ import {
   MdCardModule,
   MdCheckboxModule,
   MdInputModule,
-  MdProgressSpinnerModule
+  MdProgressSpinnerModule,
+  MdIconModule,
 } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import 'hammerjs';
@@ -54,6 +55,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     MdInputModule,
     MdProgressSpinnerModule,
     BrowserAnimationsModule,
+    MdIconModule,
   ],
   providers: [
     { provide: IUserService, useClass: UserService },

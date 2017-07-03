@@ -7,7 +7,6 @@ $bodyHeight: calc(100vh - #{$headerHeight} - #{$footerHeight});
 
 #appBody {
   min-height: $bodyHeight;
-  padding: 2*$spacing $spacing;
 
   position: relative;
   z-index: 20;

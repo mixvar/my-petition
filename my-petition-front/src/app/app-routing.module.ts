@@ -22,7 +22,7 @@ const routes: Routes = [
     component: PetitionDetailsComponent
   },
   {
-    path: 'petitions/new',
+    path: 'new-petition',
     component: NewPetitionComponent
   },
   {

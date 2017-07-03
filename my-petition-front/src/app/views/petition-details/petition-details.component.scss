@@ -1,2 +1,30 @@
 //noinspection CssUnknownTarget
 @import '~app/styles/styles';
+
+
+#petitionDetailsView {
+
+  .head {
+    width: 100%;
+    padding: $spacing;
+    background: $colorThemeSecondary;
+    color: $colorThemePrimary;
+    border-bottom: 3px solid lighten($colorThemeSecondary, 20);
+  }
+
+  .info {
+    margin: $spacing -8px;
+    @include fontStyle(light);
+    .label {
+      color: $colorThemeAccent;
+    }
+    .value {
+      font-size: 110%;
+    }
+  }
+
+  .content {
+    padding: $spacing;
+  }
+
+}

@@ -1,9 +1,39 @@
 <div id="petitionDetailsView">
+  <div *ngIf="petition">
 
-  <div class="hAlign">
-    petition {{petitionId}} details
-    <!--created on {{petition.creationDate | date:'y-MM-dd'}}-->
+    <div class="head">
+      <div class="hAlign">
+
+        <div class="header">{{petition.title}}</div>
+        <div class="subHeader">{{petition.description}}</div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">author:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.owner.name}}</div>
+        </div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">addressed to:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.addressee}}</div>
+        </div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">created on:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.creationDate | date:'y-MM-d'}}</div>
+        </div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">tags:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.getFormattedTags()}}</div>
+        </div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">signs:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.signCount}} (show list)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hAlign content">
+      <pre>{{petition.text}}</pre>
+    </div>
+
   </div>
-
-
+  <app-loader [loading]="fetching" [scale]="2"></app-loader>
 </div>
