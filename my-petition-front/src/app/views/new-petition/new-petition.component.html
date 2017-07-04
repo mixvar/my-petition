@@ -1,7 +1,48 @@
 <div id="newPetitionView">
 
   <div class="hAlign">
-    new-petition works!
+    <form #petitionForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="inputContainer">
+        <md-input-container>
+          <input mdInput placeholder="title" name="title" [(ngModel)]="petition.title">
+        </md-input-container>
+      </div>
+
+      <div class="inputContainer">
+        <md-input-container>
+          <input mdInput placeholder="description" name="description" [(ngModel)]="petition.description">
+        </md-input-container>
+      </div>
+
+      <div class="inputContainer">
+        <md-input-container>
+          <input mdInput placeholder="addressee" name="addressee" [(ngModel)]="petition.addressee">
+        </md-input-container>
+      </div>
+
+      <div class="inputContainer">
+        <md-input-container>
+          <input mdInput
+                 title="space separated values starting with '#'"
+                 placeholder="tags"
+                 name="tags"
+                 [(ngModel)]="rawTags"
+          >
+        </md-input-container>
+      </div>
+
+      <div id="mdEditor">
+        <textarea title="text" name="text" [(ngModel)]="rawText"></textarea>
+      </div>
+
+      <div id="mdView" class="markdown" [innerHtml]="getParsedText()"></div>
+
+      <div id="submitButton">
+        <button type="submit" md-raised-button color="primary">Submit!</button>
+      </div>
+
+    </form>
   </div>
 
 </div>

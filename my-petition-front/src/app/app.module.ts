@@ -29,6 +29,8 @@ import { PetitionsService } from './services/petitions/petitions.service';
 import { UserService } from './services/user/user.service';
 import IUserService from './services/user/user.service.interface';
 import { LoaderComponent } from './components/loader/loader.component';
+import IMarkdownService from './services/markdown/markdown.service.interface';
+import { MarkdownService } from './services/markdown/markdown.service';
 
 
 @NgModule({
@@ -41,7 +43,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     NewPetitionComponent,
     PetitionTileComponent,
     SandboxComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { LoaderComponent } from './components/loader/loader.component';
   providers: [
     { provide: IUserService, useClass: UserService },
     { provide: IPetitionsService, useClass: MockPetitionsService },
+    { provide: IMarkdownService, useClass: MarkdownService },
   ],
   bootstrap: [AppComponent]
 })

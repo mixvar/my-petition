@@ -1,2 +1,48 @@
 //noinspection CssUnknownTarget
 @import '~app/styles/styles';
+
+#newPetitionView {
+  padding: $spacing;
+
+  #mdEditor {
+    margin: $spacing;
+    textarea {
+      padding: $spacing/2;
+      width: 100%;
+      max-width: 100%;
+      min-height: 300px;
+      border: 1px solid $colorThemePrimary;
+    }
+  }
+
+  #mdView {
+    margin: $spacing;
+    padding: $spacing;
+    border: 1px solid $colorThemeAccent;
+  }
+
+  #submitButton {
+    margin: 2*$spacing auto;
+    text-align: center;
+    button {
+      width: 50%;
+      padding: $spacing;
+      font-size: $fontSizeSubHeader;
+      transition: color 200ms ease;
+      &:hover {
+        color: $colorThemeSecondary;
+      }
+    }
+  }
+
+  .inputContainer {
+    margin: $spacing auto;
+    width: 90%;
+    text-align: center;
+
+    md-input-container {
+      width: 100%;
+    }
+  }
+
+}

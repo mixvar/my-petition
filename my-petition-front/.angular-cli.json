@@ -21,7 +21,8 @@
       "styles": [
         "../node_modules/flexboxgrid/dist/flexboxgrid.min.css",
         "./app/styles/styles.scss",
-        "./app/styles/theme.scss"
+        "./app/styles/theme.scss",
+        "./app/styles/markdown-air.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
