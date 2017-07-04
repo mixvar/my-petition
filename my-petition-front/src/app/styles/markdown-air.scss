@@ -64,6 +64,11 @@
     font-size: 12px;
   }
 
+  *::selection {
+    color: #7986CB;
+    background: rgba(#37474F, 0.9);
+  }
+
   @media screen and (min-width: 32rem) and (max-width: 48rem) {
     html {
       font-size: 15px;
