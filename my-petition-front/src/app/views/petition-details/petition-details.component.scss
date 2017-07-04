@@ -8,7 +8,6 @@
     padding: $spacing;
     background: $colorThemeSecondary;
     color: $colorThemePrimary;
-    border-bottom: 3px solid lighten($colorThemeSecondary, 20);
   }
 
   .header {
@@ -31,7 +30,7 @@
   }
 
   .content {
-    padding: $spacing;
+    padding: $spacing $spacing 3*$spacing;
   }
 
 }

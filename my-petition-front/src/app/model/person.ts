@@ -7,7 +7,7 @@ class Person {
   public id: number;
 
   @Expose({ name: 'FbId' })
-  public fbId: number; // TODO should be string
+  public fbId: string;
 
   @Expose({ name: 'Name' })
   public name: string;
