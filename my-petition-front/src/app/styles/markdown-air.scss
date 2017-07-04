@@ -29,6 +29,7 @@
 
     pre,
     blockquote {
+      color: #4DB6AC !important;
       border: 1px solid #999;
       page-break-inside: avoid;
     }
@@ -93,8 +94,9 @@
   .air-h3,
   h4,
   .air-h4 {
+    color: lighten(#37474F, 10);
     margin: 1.414rem 0 .5rem;
-    font-weight: inherit;
+    font-weight: 300;
     line-height: 1.42;
   }
 
@@ -146,11 +148,11 @@
     max-width: 100%;
   }
 
-  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+  //@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
 
   body {
-    color: #444;
-    font-family: 'Open Sans', Helvetica, sans-serif;
+    color: #37474F;
+    //font-family: 'Open Sans', Helvetica, sans-serif;
     font-weight: 300;
     margin: 6rem auto 1rem;
     max-width: 48rem;
@@ -176,14 +178,15 @@
   }
 
   pre {
-    background-color: #fafafa;
+    background-color: #e6e4fa;
     padding: 1rem;
     text-align: left;
   }
 
   blockquote {
     margin: 0;
-    border-left: 5px solid #7a7a7a;
+    //border-left: 5px solid #7a7a7a;
+    border-left: 5px solid #7986CB;
     font-style: italic;
     padding: 1.33em;
     text-align: left;
@@ -196,6 +199,6 @@
   }
 
   p {
-    color: #777;
+    color: #37474F;
   }
 }

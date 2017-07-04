@@ -11,12 +11,12 @@
       </div>
     </div>
 
-    <div id="addButtonContainer" *ngIf="!fetching">
-      <button md-fab color="primary" routerLink="/new-petition">
-        <md-icon>add</md-icon>
-      </button>
-    </div>
+  </div>
 
+  <div id="addButtonContainer" *ngIf="!fetching">
+    <button md-fab color="primary" routerLink="/new-petition">
+      <md-icon>add</md-icon>
+    </button>
   </div>
 
   <app-loader [loading]="fetching" [scale]="2"></app-loader>

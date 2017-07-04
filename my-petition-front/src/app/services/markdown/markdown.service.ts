@@ -20,11 +20,7 @@ export class MarkdownService implements IMarkdownService {
   }
 
   serialize(mdSource: string): string {
-    return (mdSource || '');
-  }
-
-  deserialize(json: string): string {
-    return json.split('\\n').join('\n');
+    return JSON.stringify(mdSource).slice(1, -1);
   }
 
 }

@@ -14,13 +14,22 @@
     bottom: 25px;
     right: 25px;
     float: right;
-    margin-top: -67px;
+    margin-top: -56px;
     transform: scale(1.2);
     transition: transform 300ms ease;
+    button {
+      background: lighten($colorThemePrimary, 10);
+      color: darken($colorThemeSecondary, 10);
+      transition: color 300ms ease;
+    }
     &:hover {
       transform: scale(1.5);
+      button {
+        color: white;
+      }
     }
   }
+
 
 }
 

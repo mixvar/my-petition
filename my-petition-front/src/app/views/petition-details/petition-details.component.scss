@@ -1,7 +1,6 @@
 //noinspection CssUnknownTarget
 @import '~app/styles/styles';
 
-
 #petitionDetailsView {
 
   .head {
@@ -10,6 +9,14 @@
     background: $colorThemeSecondary;
     color: $colorThemePrimary;
     border-bottom: 3px solid lighten($colorThemeSecondary, 20);
+  }
+
+  .header {
+    @include fontStyle(light);
+  }
+
+  .subHeader {
+    font-size: 19px;
   }
 
   .info {

@@ -4,6 +4,7 @@ import { Subscription } from '../../../../node_modules/rxjs/Subscription';
 
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import PetitionDetails from '../../model/petition-details';
+import IMarkdownService from '../../services/markdown/markdown.service.interface';
 
 
 @Component({
@@ -20,12 +21,14 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
   private sub: Subscription;
 
   constructor(private route: ActivatedRoute,
-              private petitionsService: IPetitionsService) { }
+              private petitionsService: IPetitionsService,
+              private markdownService: IMarkdownService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const petitionId = +params['id'];
       this.fetching = true;
+
       this.petitionsService.getPetitionDetails(petitionId).subscribe(
         (petition) => {
           this.petition = petition;
@@ -41,6 +44,10 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  getParsedText(): string {
+    return this.markdownService.parse(this.petition.text);
   }
 
 }

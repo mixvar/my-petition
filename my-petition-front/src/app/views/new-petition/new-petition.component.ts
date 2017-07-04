@@ -18,14 +18,13 @@ export class NewPetitionComponent implements OnInit {
   ngOnInit() {
   }
 
-  getParsedText() {
+  getParsedText(): string {
     return this.markdownService.parse(this.rawText);
   }
 
   onSubmit() {
     this.petition.text = this.markdownService.serialize(this.rawText);
     console.log(this.petition);
-    this.rawText = this.markdownService.deserialize(this.petition.text);
   }
 
 }

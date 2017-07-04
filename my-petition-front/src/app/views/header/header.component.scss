@@ -13,17 +13,19 @@
   position: relative;
   z-index: 30;
   @include simpleShadowBot();
+
+  #contentContainer {
+    min-height: $headerHeight;
+  }
+
+  a {
+    text-decoration: none;
+    color: $colorThemeSecondary;
+  }
+
+  button {
+    margin-bottom: 15px;
+  }
 }
 
-#contentContainer {
-  min-height: $headerHeight;
-}
 
-a {
-  text-decoration: none;
-  color: $colorThemeSecondary;
-}
-
-button {
-  margin-bottom: 15px;
-}

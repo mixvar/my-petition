@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <div class="hAlign content">
-      <pre>{{petition.text}}</pre>
+    <div class="hAlign content markdown">
+      <div [innerHtml]="getParsedText()"></div>
     </div>
 
   </div>
