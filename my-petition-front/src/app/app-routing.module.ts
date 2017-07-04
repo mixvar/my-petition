@@ -5,6 +5,7 @@ import {PetitionsComponent} from './views/petitions/petitions.component';
 import {PetitionDetailsComponent} from './views/petition-details/petition-details.component';
 import {NewPetitionComponent} from './views/new-petition/new-petition.component';
 import {SandboxComponent} from './views/sandbox/sandbox.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'new-petition',
-    component: NewPetitionComponent
+    component: NewPetitionComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'sandbox',

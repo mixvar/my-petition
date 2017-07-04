@@ -10,6 +10,7 @@ import {
   MdInputModule,
   MdProgressSpinnerModule,
   MdIconModule,
+  MdSnackBarModule,
 } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import 'hammerjs';
@@ -31,6 +32,7 @@ import IUserService from './services/user/user.service.interface';
 import { LoaderComponent } from './components/loader/loader.component';
 import IMarkdownService from './services/markdown/markdown.service.interface';
 import { MarkdownService } from './services/markdown/markdown.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -50,19 +52,21 @@ import { MarkdownService } from './services/markdown/markdown.service';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     FacebookModule.forRoot(),
     MdButtonModule,
     MdCardModule,
     MdCheckboxModule,
     MdInputModule,
     MdProgressSpinnerModule,
-    BrowserAnimationsModule,
     MdIconModule,
+    MdSnackBarModule,
   ],
   providers: [
     { provide: IUserService, useClass: UserService },
     { provide: IPetitionsService, useClass: MockPetitionsService },
     { provide: IMarkdownService, useClass: MarkdownService },
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

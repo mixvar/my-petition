@@ -14,7 +14,7 @@ $colorThemePrimary: #7986CB; // indigo 300
 $colorThemeAccent: #4DB6AC; // teal 300
 $colorThemeSecondary: #37474F; // blue-grey 800
 $colorFontSecondary: #1f1f1f;
-
+$colorFB: #3b5998;
 
 /* mixins */
 
@@ -38,7 +38,6 @@ $colorFontSecondary: #1f1f1f;
   }
 }
 
-
 /* styles */
 
 * {
@@ -55,12 +54,15 @@ body {
   max-width: $contentWidth;
   margin: 0 auto;
 }
+
 .hLeft {
   text-align: left;
 }
+
 .hCenter {
   text-align: center;
 }
+
 .hRight {
   text-align: right;
 }
@@ -68,6 +70,7 @@ body {
 .bold {
   @include fontStyle(bold);
 }
+
 .light {
   @include fontStyle(light);
 }
@@ -98,7 +101,24 @@ body {
 }
 
 .mat-fb {
-  background-color: #3b5998;
+  background-color: $colorFB;
   color: white;
+}
+
+
+/* ngMaterial snackBar */
+.snack-err {
+  background: darken(rgba(red, 0.8), 10) !important;
+  .mat-simple-snackbar {
+    color: black;
+    font-size: 19px;
+  }
+}
+
+.snack-no-action {
+  min-width: 150px !important;
+  button {
+    display: none;
+  }
 }
 
