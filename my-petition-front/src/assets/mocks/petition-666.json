@@ -10,7 +10,7 @@
   ],
   "Owner": {
     "Id": 2,
-    "FbId": 20,
+    "FbId": "1269765979807683",
     "Name": "user"
   },
   "Description": "mock representing newly added petition",
@@ -18,17 +18,17 @@
   "Signs": [
     {
       "Id": 2,
-      "FbId": 20,
-      "Name": "Robert Górczyk"
+      "FbId": "1269765979807683",
+      "Name": "MK"
     },
     {
       "Id": 4,
-      "FbId": 51651,
+      "FbId": "51651",
       "Name": "Jan Kowlasky"
     },
     {
       "Id": 5,
-      "FbId": 1234,
+      "FbId": "1234",
       "Name": "Jola 'YOLO' Jolańska"
     }
   ]

@@ -12,7 +12,7 @@
   ],
   "Owner": {
     "Id": 2,
-    "FbId": 20,
+    "FbId": "20",
     "Name": "Robert Górczyk"
   },
   "Description": "Prośba o zaniechanie sprzedarzy terenów kompleksu lotniskowego i stowrzenie tam muzeum lotnictwa. Prośba o zaniechanie sprzedarzy terenów kompleksu lotniskowego i stowrzenie tam muzeum lotnictwa. Prośba o zaniechanie sprzedarzy terenów kompleksu lotniskowego i stowrzenie tam muzeum lotnictwa.",
@@ -20,17 +20,17 @@
   "Signs": [
     {
       "Id": 2,
-      "FbId": 20,
+      "FbId": "20",
       "Name": "Robert Górczyk"
     },
     {
       "Id": 4,
-      "FbId": 51651,
+      "FbId": "51651",
       "Name": "Jan Kowlasky"
     },
     {
       "Id": 5,
-      "FbId": 1234,
+      "FbId": "1234",
       "Name": "Jola 'YOLO' Jolańska"
     }
   ]

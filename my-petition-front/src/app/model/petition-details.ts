@@ -39,6 +39,17 @@ class PetitionDetails extends Petition {
     return petition;
   }
 
+
+  public isSignedBy(person: Person) {
+    if (!person || person.fbId) {
+      return false;
+    }
+
+    return !!this.signs
+      .map(signer => signer.fbId)
+      .find(id => id === person.fbId);
+  }
+
 }
 
 export default PetitionDetails;

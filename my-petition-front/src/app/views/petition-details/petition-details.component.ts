@@ -5,6 +5,7 @@ import { Subscription } from '../../../../node_modules/rxjs/Subscription';
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import PetitionDetails from '../../model/petition-details';
 import IMarkdownService from '../../services/markdown/markdown.service.interface';
+import IUserService from '../../services/user/user.service.interface';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private petitionsService: IPetitionsService,
-              private markdownService: IMarkdownService) { }
+              private markdownService: IMarkdownService,
+              private userService: IUserService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -48,6 +50,16 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
 
   getParsedText(): string {
     return this.markdownService.parse(this.petition.text);
+  }
+
+  isSigned(): boolean {
+    const user = this.userService.getUser();
+    return this.petition.isSignedBy(user);
+  }
+
+  isOwned(): boolean {
+    const user = this.userService.getUser();
+    return (this.petition.owner.fbId === user.fbId);
   }
 
 }
