@@ -1,5 +1,7 @@
 <div id="newPetitionView">
 
+  <div class="header">Create new petition</div>
+
   <div class="hAlign">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
 
@@ -30,7 +32,7 @@
                  title="space separated values starting with '#'"
                  placeholder="tags"
                  [formControl]="form.controls.tags">
-          <md-hint>Space separated values beelining with '#'</md-hint>
+          <md-hint class="hint">Space separated values beginning with '#'</md-hint>
           <md-error *ngIf="form.controls.tags.hasError('required')">
             This field is required
           </md-error>
@@ -40,20 +42,29 @@
         </md-input-container>
       </div>
 
-      <div class="inputContainer mdEditor">
-        <md-input-container>
-          <textarea
-            mdInput
-            mdTextareaAutosize [mdAutosizeMinRows]="1"
-            placeholder="petition content"
-            [formControl]="form.controls.text">
-          </textarea>
-          <md-hint>The actual content of your petition. Use Markdown syntax for formatting.</md-hint>
-          <md-error>This field is required</md-error>
-        </md-input-container>
-      </div>
 
-      <div id="mdView" class="markdown" [innerHtml]="getParsedText()"></div>
+      <md-tab-group class="textTabsContainer halfTabs" [dynamicHeight]="true">
+
+        <md-tab label="Edit" position="0">
+          <div class="mdEditor">
+            <md-input-container>
+                <textarea
+                  mdInput
+                  mdTextareaAutosize [mdAutosizeMinRows]="1"
+                  placeholder="petition content"
+                  [formControl]="form.controls.text">
+                </textarea>
+              <md-hint class="hint">The actual content of your petition. Use Markdown syntax for formatting.</md-hint>
+              <md-error>This field is required</md-error>
+            </md-input-container>
+          </div>
+        </md-tab>
+
+        <md-tab label="Preview" position="0">
+          <div class="mdView markdown" [innerHtml]="getParsedText()"></div>
+        </md-tab>
+
+      </md-tab-group>
 
       <div id="submitButton">
         <button

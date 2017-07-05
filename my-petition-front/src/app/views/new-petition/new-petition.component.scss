@@ -2,12 +2,50 @@
 @import '~app/styles/styles';
 
 #newPetitionView {
-  padding: $spacing;
+  padding-bottom: $spacing;
 
-  #mdView {
-    margin: $spacing;
-    padding: $spacing;
-    border: 1px solid $colorThemeAccent;
+  .header {
+    text-align: center;
+    @include fontStyle(light);
+    color: $colorThemePrimary;
+    background: $colorThemeSecondary;
+    padding: 2*$spacing;
+    margin-bottom: 2*$spacing;
+  }
+
+  .inputContainer {
+    margin: $spacing auto;
+    width: 90%;
+    text-align: center;
+    md-input-container {
+      width: 100%;
+    }
+  }
+
+  .hint {
+    color: $colorThemeAccent;
+  }
+
+  .textTabsContainer {
+    margin: 2*$spacing;
+    margin-top: 3*$spacing;
+    @include shadow(2px, rgba(black, 0.25));
+    .mdEditor {
+      padding: $spacing;
+      md-input-container {
+        width: 100%;
+        overflow: hidden;
+      }
+      textarea {
+        min-height: 300px;
+        padding: $spacing;
+      }
+    }
+    .mdView {
+      margin: $spacing;
+      padding: $spacing;
+      min-height: 300px;
+    }
   }
 
   #submitButton {
@@ -21,24 +59,6 @@
       &:hover {
         color: $colorThemeSecondary;
       }
-    }
-  }
-
-  .inputContainer {
-    margin: $spacing auto;
-    width: 90%;
-    text-align: center;
-
-    md-input-container {
-      width: 100%;
-    }
-  }
-
-  .mdEditor {
-    padding: $spacing;
-    @include shadow(2px, rgba(black, 0.25));
-    textarea {
-      min-height: 150px;
     }
   }
 

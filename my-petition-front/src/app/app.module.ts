@@ -11,6 +11,7 @@ import {
   MdProgressSpinnerModule,
   MdIconModule,
   MdSnackBarModule,
+  MdTabsModule,
 } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import 'hammerjs';
@@ -62,6 +63,7 @@ import { AuthGuard } from './guards/auth.guard';
     MdProgressSpinnerModule,
     MdIconModule,
     MdSnackBarModule,
+    MdTabsModule,
   ],
   providers: [
     { provide: IUserService, useClass: UserService },
