@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     if (this.userLoggedIn) {
       return true;
     } else {
-      this.snackbar.open('Log in in order to create a petition!', 'LOGIN', {
+      this.snackbar.open('Log in in order to create a petition!', null, {
         duration: 4000,
         extraClasses: ['snack-err', 'snack-no-action'],
       });

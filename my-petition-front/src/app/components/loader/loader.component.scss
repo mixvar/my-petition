@@ -11,8 +11,13 @@ $spinnerSize: 100px;
   z-index: 9999;
 
   #loader {
-    position: absolute;
     top: calc(50% - #{$spinnerSize/2});
     left: calc(50% - #{$spinnerSize/2});
+    &.local {
+      position: absolute;
+    }
+    &.global {
+      position: fixed;
+    }
   }
 }

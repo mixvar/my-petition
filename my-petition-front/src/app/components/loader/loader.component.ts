@@ -37,9 +37,21 @@ export class LoaderComponent {
   @Input()
   public scale: number = 1;
 
+  @Input()
+  public type: LoaderType = LoaderType.LCOAL;
+
   constructor() { }
 
   getScaleStyle() {
     return `scale(${this.scale})`;
   }
+
+  getTypeClass() {
+    return (LoaderType.GLOBAL === this.type) ? 'global' : 'local';
+  }
+}
+
+export enum LoaderType {
+  LCOAL = 1,
+  GLOBAL = 2,
 }
