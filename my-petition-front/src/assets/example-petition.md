@@ -1,5 +1,3 @@
-## Ocalmy zabytkowe hangary i stwórzmy Muzeum Lotnictwa we Wrocławiu
-
 Do:
 > Oddział Terenowy Agencji Mmienia Wojskowego we Wrocławiu  
 > Dyrektor Oddziału Zbigniew Sieja  
@@ -8,6 +6,9 @@ Do:
 > +48 71 364 73 60  
 > zbigniew.sieja@amw.com.pl, sekretariat@amw.com.pl, doz@mkidn.gov.pl, wojsekr@duw.pl, kancelaria.prez
 
+## Ocalmy zabytkowe hangary i stwórzmy Muzeum Lotnictwa we Wrocławiu
+
+![Lotnisko](http://odkrywca.pl/forum_pics/picsforum2/lotnisko_na_gdowie_maym_nowy_hangar.jpg "Lotnisko")
 
 **Teren kompleksu lotniskowego** z dwoma hangarami wpisanymi do rejestru zabytków, znajdującego się w dawnej
 koszarowej części lotniska Wrocław – Strachowice we Wrocławiu przy *ul. Granicznej*, jest wyjątkowym kompleksem
