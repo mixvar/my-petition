@@ -2,8 +2,7 @@
 @import '~app/styles/styles';
 
 #confirmationDialogComponent {
-  @include dialogPaddingFix();
-  padding: $spacing;
+  padding: $spacing*2;
   background: $colorThemeSecondary;
   color: $colorThemePrimary;
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from '../../../../node_modules/rxjs/Subscription';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MdDialog } from '@angular/material';
 
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import PetitionDetails from '../../model/petition-details';
@@ -71,7 +71,7 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
   }
 
   onSign(): void {
-    const options: ConfirmationDialogParams = {
+    const dialogParams: ConfirmationDialogParams = {
       title: 'Sign petition',
       content: 'Are you sure you want to sign this petition?',
       cancel: 'Cancel',
@@ -79,7 +79,7 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
     };
 
     const signDialog = this.dialog.open(ConfirmationDialogComponent, {
-      data: options,
+      data: dialogParams,
       width: '75%',
       disableClose: true,
     });
@@ -104,6 +104,7 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
         this.fetching = false;
         this.notificationsService.success('Petition signed!');
         this.petition.signs.push(this.userService.getUser());
+        this.petition.signCount++;
       }
     );
   }
