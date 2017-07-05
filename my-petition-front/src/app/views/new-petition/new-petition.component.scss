@@ -68,10 +68,6 @@
       width: 50%;
       padding: $spacing;
       font-size: $fontSizeSubHeader;
-      transition: color 200ms ease;
-      &:hover {
-        color: $colorThemeSecondary;
-      }
     }
   }
 

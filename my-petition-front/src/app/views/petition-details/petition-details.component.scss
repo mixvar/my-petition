@@ -7,15 +7,14 @@
     width: 100%;
     padding: $spacing;
     background: $colorThemeSecondary;
-    color: $colorThemePrimary;
-  }
+    color: lighten($colorThemePrimary, 10);
 
-  .header {
-    @include fontStyle(light);
-  }
-
-  .subHeader {
-    font-size: 19px;
+    .header {
+      color: $colorThemePrimary;
+      @include fontStyle(light);
+      text-align: center;
+      margin: $spacing*2 0;
+    }
   }
 
   .info {
@@ -23,9 +22,25 @@
     @include fontStyle(light);
     .label {
       color: $colorThemeAccent;
+      @include fontStyle(bold);
     }
     .value {
       font-size: 110%;
+    }
+  }
+
+  .actions {
+    margin-top: $spacing*2;
+    div {
+      padding: 0;
+    }
+    .action {
+      margin: $spacing/2;
+    }
+    button {
+      padding: $spacing/3;
+      width: 100%;
+      font-size: 19px;
     }
   }
 

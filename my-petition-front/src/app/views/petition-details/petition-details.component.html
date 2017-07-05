@@ -5,26 +5,52 @@
       <div class="hAlign">
 
         <div class="header">{{petition.title}}</div>
-        <div class="subHeader">{{petition.description}}</div>
         <div class="row info">
-          <div class="col-xs-12 col-md-3 label">author:</div>
+          <div class="col-xs-12 col-md-3 label">Description</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.description}}</div>
+        </div>
+        <div class="row info">
+          <div class="col-xs-12 col-md-3 label">Author:</div>
           <div class="col-xs-12 col-md-9 value">{{petition.owner.name}}</div>
         </div>
         <div class="row info">
-          <div class="col-xs-12 col-md-3 label">addressed to:</div>
+          <div class="col-xs-12 col-md-3 label">Addressed to:</div>
           <div class="col-xs-12 col-md-9 value">{{petition.addressee}}</div>
         </div>
         <div class="row info">
-          <div class="col-xs-12 col-md-3 label">created on:</div>
+          <div class="col-xs-12 col-md-3 label">Created on:</div>
           <div class="col-xs-12 col-md-9 value">{{petition.creationDate | date:'y-MM-d'}}</div>
         </div>
         <div class="row info">
-          <div class="col-xs-12 col-md-3 label">tags:</div>
+          <div class="col-xs-12 col-md-3 label">Tags:</div>
           <div class="col-xs-12 col-md-9 value">{{petition.getFormattedTags()}}</div>
         </div>
         <div class="row info">
-          <div class="col-xs-12 col-md-3 label">signs:</div>
-          <div class="col-xs-12 col-md-9 value">{{petition.signCount}} (show list)</div>
+          <div class="col-xs-12 col-md-3 label">Signs:</div>
+          <div class="col-xs-12 col-md-9 value">{{petition.signCount}}</div>
+        </div>
+
+        <div class="row actions center-xs middle-xs">
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="action">
+              <button md-raised-button color="primary">Sign</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="action">
+              <button md-raised-button color="primary">Share</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="action">
+              <button md-raised-button color="accent">Show signs</button>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-3 col-md-2">
+            <div class="action">
+              <button md-raised-button color="warn">Close petition</button>
+            </div>
+          </div>
         </div>
 
       </div>

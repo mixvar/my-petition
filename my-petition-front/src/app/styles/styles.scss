@@ -15,6 +15,7 @@ $colorThemeAccent: #4DB6AC; // teal 300
 $colorThemeSecondary: #37474F; // blue-grey 800
 $colorFontSecondary: #1f1f1f;
 $colorFB: #3b5998;
+$colorWarn: #f44336;
 
 /* mixins */
 
@@ -100,6 +101,28 @@ body {
   padding: $spacing !important;
 }
 
+@mixin improvedPrimaryButton($color){
+  color: darken($colorThemeSecondary, 10);
+  transition: all 250ms ease;
+  &:hover {
+    color: $color;
+    background: darken($colorThemeSecondary, 10);
+  }
+}
+
+button {
+  &.mat-primary {
+    @include improvedPrimaryButton($colorThemePrimary);
+  }
+  &.mat-accent {
+    @include improvedPrimaryButton($colorThemeAccent);
+  }
+  &.mat-warn {
+    @include improvedPrimaryButton($colorWarn);
+  }
+}
+
+
 .mat-fb {
   background-color: $colorFB;
   color: white;
@@ -116,17 +139,17 @@ body {
 }
 .snack-success {
   @extend .snack-message;
-  background: (rgba(#38eb22, 0.8)) !important;
+  background: (rgba(#5eeb4e, 0.8)) !important;
 }
 
 .snack-info {
   @extend .snack-message;
-  background: (rgba(#235dff, 0.8)) !important;
+  background: (rgba(#7b88ff, 0.8)) !important;
 }
 
 .snack-error {
   @extend .snack-message;
-  background: darken(rgba(red, 0.8), 10) !important;
+  background: $colorWarn !important;
 }
 
 .snack-no-action {
