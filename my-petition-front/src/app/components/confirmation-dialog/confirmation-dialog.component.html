@@ -1,0 +1,17 @@
+<div id="confirmationDialogComponent">
+
+  <div class="header">
+    {{params.title}}
+  </div>
+
+  <div>{{params.content}}</div>
+
+  <div class="row actions">
+    <div class="col-xs-6">
+      <button md-button [md-dialog-close]="false">{{params.cancel}}</button>
+    </div>
+    <div class="col-xs-6">
+      <button md-raised-button [md-dialog-close]="true" color="primary">{{params.confirm}}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+//noinspection CssUnknownTarget
+@import '~app/styles/styles';
+
+#confirmationDialogComponent {
+  @include dialogPaddingFix();
+  padding: $spacing;
+  background: $colorThemeSecondary;
+  color: $colorThemePrimary;
+
+  .header {
+    text-align: center;
+    @include fontStyle(light);
+  }
+
+  .actions {
+    padding-top: $spacing;
+    button {
+      width: 100%;
+      font-size: 19px;
+      padding: $spacing/2;
+    }
+  }
+}

@@ -11,6 +11,8 @@ abstract class IPetitionsService {
   abstract getPetitionDetails(petitionId: number): Observable<PetitionDetails>;
 
   abstract addPetition(petition: PetitionDetails): Observable<NewPetitionResponse>;
+
+  abstract signPetition(petitionId: number): Observable<{}>;
 }
 
 export default IPetitionsService;

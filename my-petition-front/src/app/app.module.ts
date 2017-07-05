@@ -12,6 +12,7 @@ import {
   MdIconModule,
   MdSnackBarModule,
   MdTabsModule,
+  MdDialogModule,
 } from '@angular/material';
 import { FacebookModule } from 'ngx-facebook';
 import 'hammerjs';
@@ -36,6 +37,7 @@ import { MarkdownService } from './services/markdown/markdown.service';
 import { AuthGuard } from './guards/auth.guard';
 import INotificationsService from './services/notifications/notifications.service.interface';
 import { NotificationsService } from './services/notifications/notifications.service';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
@@ -49,6 +51,10 @@ import { NotificationsService } from './services/notifications/notifications.ser
     PetitionTileComponent,
     SandboxComponent,
     LoaderComponent,
+    ConfirmationDialogComponent,
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +72,7 @@ import { NotificationsService } from './services/notifications/notifications.ser
     MdIconModule,
     MdSnackBarModule,
     MdTabsModule,
+    MdDialogModule,
   ],
   providers: [
     { provide: IUserService, useClass: UserService },

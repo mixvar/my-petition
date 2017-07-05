@@ -24,7 +24,7 @@ $colorWarn: #f44336;
 }
 
 @mixin shadow($size, $color: #292929) {
-  box-shadow: $size $size $size*4 0 $color, -1*$size -1*$size $size*4 0 $color, -1*$size $size $size*4 0 $color, $size -1*$size $size*4 0 $color;
+  box-shadow: $size $size $size*3 0 $color, -1*$size -1*$size $size*3 0 $color, -1*$size $size $size*3 0 $color, $size -1*$size $size*3 0 $color;
 }
 
 @mixin fontStyle($style) {
@@ -101,7 +101,7 @@ body {
   padding: $spacing !important;
 }
 
-@mixin improvedPrimaryButton($color){
+@mixin improvedPrimaryButton($color) {
   color: darken($colorThemeSecondary, 10);
   transition: all 350ms ease;
   &:hover {
@@ -126,12 +126,10 @@ button {
   }
 }
 
-
 .mat-fb {
   background-color: $colorFB;
   color: white;
 }
-
 
 /* ngMaterial snackBar */
 
@@ -141,6 +139,7 @@ button {
     font-size: 19px;
   }
 }
+
 .snack-success {
   @extend .snack-message;
   background: (rgba(#5eeb4e, 0.8)) !important;
@@ -163,10 +162,22 @@ button {
   }
 }
 
-
 /* tab-group */
 .halfTabs {
   .mat-tab-label {
     width: 50% !important;
   }
 }
+
+/* dialog */
+@mixin dialogPaddingFix() {
+  margin:  -24px;
+}
+.mat-dialog-container {
+  .mat-dialog-content {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+

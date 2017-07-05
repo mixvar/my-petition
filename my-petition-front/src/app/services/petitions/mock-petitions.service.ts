@@ -39,4 +39,9 @@ export class MockPetitionsService implements IPetitionsService {
       .delay(1000);
   }
 
+  signPetition(petitionId: number): Observable<{}> {
+    console.log(`signing petition #${petitionId}`);
+    return Observable.empty().delay(1000);
+  }
+
 }

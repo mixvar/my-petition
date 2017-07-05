@@ -24,4 +24,8 @@ export class PetitionsService implements IPetitionsService {
     throw new Error('addPetition not implemented!');
   }
 
+  signPetition(petitionId: number): Observable<{}> {
+    throw new Error('signPetition not implemented.');
+  }
+
 }

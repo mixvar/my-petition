@@ -1,11 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from '../../../../node_modules/rxjs/Subscription';
+import { MdDialog, MdDialogRef } from '@angular/material';
 
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import PetitionDetails from '../../model/petition-details';
 import IMarkdownService from '../../services/markdown/markdown.service.interface';
 import IUserService from '../../services/user/user.service.interface';
+import {
+  ConfirmationDialogComponent,
+  ConfirmationDialogParams
+} from 'app/components/confirmation-dialog/confirmation-dialog.component';
+import INotificationsService from '../../services/notifications/notifications.service.interface';
 
 
 @Component({
@@ -24,7 +30,9 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute,
               private petitionsService: IPetitionsService,
               private markdownService: IMarkdownService,
-              private userService: IUserService) { }
+              private userService: IUserService,
+              private notificationsService: INotificationsService,
+              private dialog: MdDialog) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -59,7 +67,45 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
 
   isOwned(): boolean {
     const user = this.userService.getUser();
-    return (this.petition.owner.fbId === user.fbId);
+    return (user && this.petition.owner.fbId === user.fbId);
+  }
+
+  onSign(): void {
+    const options: ConfirmationDialogParams = {
+      title: 'Sign petition',
+      content: 'Are you sure you want to sign this petition?',
+      cancel: 'Cancel',
+      confirm: 'Sign'
+    };
+
+    const signDialog = this.dialog.open(ConfirmationDialogComponent, {
+      data: options,
+      width: '75%',
+      disableClose: true,
+    });
+
+    signDialog.afterClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.doSign();
+      }
+    });
+  }
+
+  private doSign() {
+    this.fetching = true;
+    this.petitionsService.signPetition(this.petition.id).subscribe(
+      () => {},
+      (error) => {
+        this.fetching = false;
+        console.error(error);
+        this.notificationsService.error('Could not sign petition - unexpected error!');
+      },
+      () => {
+        this.fetching = false;
+        this.notificationsService.success('Petition signed!');
+        this.petition.signs.push(this.userService.getUser());
+      }
+    );
   }
 
 }
