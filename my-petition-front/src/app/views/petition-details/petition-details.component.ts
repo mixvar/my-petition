@@ -12,6 +12,7 @@ import {
   ConfirmationDialogParams
 } from 'app/components/confirmation-dialog/confirmation-dialog.component';
 import INotificationsService from '../../services/notifications/notifications.service.interface';
+import { SignsDialogComponent } from './signs-dialog/signs-dialog.component';
 
 
 @Component({
@@ -70,6 +71,14 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
     return (user && this.petition.owner.fbId === user.fbId);
   }
 
+  onSignsList(): void {
+    this.dialog.open(SignsDialogComponent, {
+      data: this.petition.signs,
+      width: '400px',
+      disableClose: false,
+    });
+  }
+
   onSign(): void {
     const dialogParams: ConfirmationDialogParams = {
       title: 'Sign petition',
@@ -91,7 +100,7 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  private doSign() {
+  private doSign(): void {
     this.fetching = true;
     this.petitionsService.signPetition(this.petition.id).subscribe(
       () => {},

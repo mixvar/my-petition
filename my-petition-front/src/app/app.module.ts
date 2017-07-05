@@ -38,6 +38,7 @@ import { AuthGuard } from './guards/auth.guard';
 import INotificationsService from './services/notifications/notifications.service.interface';
 import { NotificationsService } from './services/notifications/notifications.service';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { SignsDialogComponent } from './views/petition-details/signs-dialog/signs-dialog.component';
 
 
 @NgModule({
@@ -52,9 +53,11 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     SandboxComponent,
     LoaderComponent,
     ConfirmationDialogComponent,
+    SignsDialogComponent,
   ],
   entryComponents: [
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    SignsDialogComponent,
   ],
   imports: [
     BrowserModule,

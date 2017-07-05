@@ -1,0 +1,17 @@
+<div id="signsDialogComponent">
+
+  <md-dialog-content class="content">
+
+    <div class="header">
+      Signs list
+    </div>
+
+    <div class="signsContainer">
+      <div class="sign" *ngFor="let person of signs; let i = index">
+        #{{i+1}} - {{person.name}}
+      </div>
+    </div>
+
+  </md-dialog-content>
+
+</div>

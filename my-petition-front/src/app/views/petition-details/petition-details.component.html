@@ -48,7 +48,7 @@
           </div>
           <div class="col-xs-12 col-sm-3 col-md-2">
             <div class="action">
-              <button md-raised-button color="accent">Show signs</button>
+              <button md-raised-button color="accent" (click)="onSignsList()">Show signs</button>
             </div>
           </div>
           <div class="col-xs-12 col-sm-3 col-md-2" *ngIf="isOwned()">
