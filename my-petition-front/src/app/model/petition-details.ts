@@ -17,6 +17,14 @@ class PetitionDetails extends Petition {
   @Expose({ name: 'Signs' })
   @Type(() => Person)
   public signs: Person[];
+
+
+  public initializeNewPetition(user: Person) {
+    this.creationDate = new Date().getTime();
+    this.owner = user;
+    this.signCount = 1;
+    this.signs = new Array(user);
+  }
 }
 
 export default PetitionDetails;

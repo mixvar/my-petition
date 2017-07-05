@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import IPetitionsService from './petitions.service.interface';
 import Petition from '../../model/petition';
 import PetitionDetails from '../../model/petition-details';
@@ -12,13 +12,15 @@ export class PetitionsService implements IPetitionsService {
   }
 
   getPetitions(): Observable<Petition[]> {
-    // TODO
-    return undefined;
+    throw new Error('getPetitions not implemented!');
   }
 
   getPetitionDetails(petitionId: number): Observable<PetitionDetails> {
-    // TODO
-    return undefined;
+    throw new Error('getPetitionDetails not implemented!');
+  }
+
+  addPetition(petition: PetitionDetails): Observable<{}> {
+    throw new Error('addPetition not implemented!');
   }
 
 }

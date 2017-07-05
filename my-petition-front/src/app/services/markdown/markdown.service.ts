@@ -20,6 +20,9 @@ export class MarkdownService implements IMarkdownService {
   }
 
   serialize(mdSource: string): string {
+    if (!mdSource || mdSource.length === 0) {
+      return undefined;
+    }
     return JSON.stringify(mdSource).slice(1, -1);
   }
 

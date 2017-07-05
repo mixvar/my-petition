@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {FacebookService, InitParams, LoginResponse} from 'ngx-facebook';
-import {ReplaySubject} from 'rxjs/ReplaySubject';
+import { Injectable } from '@angular/core';
+import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import UserState from '../../model/user-state';
 import IUserService from './user.service.interface';
-import {AuthResponse} from '../../../../node_modules/ngx-facebook/dist/esm/models/auth-response';
+import { AuthResponse } from '../../../../node_modules/ngx-facebook/dist/esm/models/auth-response';
+import Person from '../../model/person';
 
 
 const fbInitParams: InitParams = {
@@ -50,6 +51,16 @@ export class UserService implements IUserService {
     // TODO
   }
 
+  getUser(): Person {
+    if (!this.currentUserState.isLoggedIn) {
+      return null;
+    }
+    const user = new Person();
+    user.fbId = this.currentUserState.userId;
+    user.name = this.currentUserState.userName;
+    return user;
+  }
+
   private init(): void {
     this.userState_.next(initialUserState);
     this.userState_.subscribe(newState => {
@@ -69,7 +80,7 @@ export class UserService implements IUserService {
   }
 
   private updateStatus(): void {
-    this.userState_.next({...this.currentUserState, fetching: true});
+    this.userState_.next({ ...this.currentUserState, fetching: true });
 
     this.facebookService.getLoginStatus()
       .then((response: LoginResponse) => {

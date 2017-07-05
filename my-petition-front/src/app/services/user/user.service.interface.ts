@@ -1,5 +1,7 @@
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+
 import UserState from '../../model/user-state';
+import Person from '../../model/person';
 
 
 abstract class IUserService {
@@ -9,6 +11,8 @@ abstract class IUserService {
   abstract login(): void;
 
   abstract logout(): void;
+
+  abstract getUser(): Person;
 }
 
 export default IUserService;

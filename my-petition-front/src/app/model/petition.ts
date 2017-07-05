@@ -5,7 +5,7 @@ import Person from './Person';
 class Petition {
 
   @Expose({ name: 'Id' })
-  public id: number;
+  public id?: number;
 
   @Expose({ name: 'Title' })
   public title: string;
@@ -14,8 +14,7 @@ class Petition {
   public addressee: string;
 
   @Expose({ name: 'CreationDate' })
-  @Type(() => Date)
-  public creationDate: Date;
+  public creationDate: number;
 
   @Expose({ name: 'SignCount' })
   public signCount: number;
