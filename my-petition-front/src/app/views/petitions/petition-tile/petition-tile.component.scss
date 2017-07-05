@@ -16,7 +16,7 @@ $tileBodyHeight: calc(#{$tileHeight} - #{$tileHeadHeight} - #{$tileTailHeight});
   background: $colorThemeSecondary;
   color: $colorThemeAccent;
   cursor: pointer;
-  opacity: 0.88;
+  opacity: 0.8;
   transition: all 300ms ease-in-out;
   @include shadow(2px, rgba(black, 0.4));
   position: relative;

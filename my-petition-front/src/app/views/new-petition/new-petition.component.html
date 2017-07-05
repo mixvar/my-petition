@@ -1,6 +1,9 @@
 <div id="newPetitionView">
 
-  <div class="header">Create new petition</div>
+  <div class="head">
+    <div class="header">Create new petition</div>
+    <div class="subHeader">It will be visible to every MyPetition user. You will be able to easily share it on Facebook.</div>
+  </div>
 
   <div class="hAlign">
     <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
@@ -70,6 +73,13 @@
 
       </md-tab-group>
 
+      <div class="checkBoxContainer">
+        <md-checkbox [formControl]="form.controls.isSigned">I sign this petition</md-checkbox>
+        <md-error *ngIf="form.controls.isSigned.touched && form.controls.isSigned.hasError('required')">
+          This field is required
+        </md-error>
+      </div>
+
       <div id="submitButton">
         <button
           type="submit"
@@ -77,7 +87,7 @@
           [disabled]="form.pristine || form.invalid"
           color="primary"
         >
-          <span>Submit!</span>
+          <span>Create petition</span>
         </button>
       </div>
 

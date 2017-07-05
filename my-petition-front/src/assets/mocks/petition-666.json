@@ -1,0 +1,35 @@
+{
+  "Id": 6,
+  "Title": "new petition mock",
+  "Addressee": "Putin",
+  "CreationDate": 1495813911285,
+  "SignCount": 4,
+  "Tags": [
+    "#newPetition",
+    "#mock"
+  ],
+  "Owner": {
+    "Id": 2,
+    "FbId": 20,
+    "Name": "user"
+  },
+  "Description": "mock representing newly added petition",
+  "Text":"# new petiton \n ## mock",
+  "Signs": [
+    {
+      "Id": 2,
+      "FbId": 20,
+      "Name": "Robert Górczyk"
+    },
+    {
+      "Id": 4,
+      "FbId": 51651,
+      "Name": "Jan Kowlasky"
+    },
+    {
+      "Id": 5,
+      "FbId": 1234,
+      "Name": "Jola 'YOLO' Jolańska"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import IPetitionsService from './petitions.service.interface';
 import Petition from '../../model/petition';
 import PetitionDetails from '../../model/petition-details';
+import NewPetitionResponse from '../../model/response/new-petition-response';
 
 
 @Injectable()
@@ -19,7 +20,7 @@ export class PetitionsService implements IPetitionsService {
     throw new Error('getPetitionDetails not implemented!');
   }
 
-  addPetition(petition: PetitionDetails): Observable<{}> {
+  addPetition(petition: PetitionDetails): Observable<NewPetitionResponse> {
     throw new Error('addPetition not implemented!');
   }
 

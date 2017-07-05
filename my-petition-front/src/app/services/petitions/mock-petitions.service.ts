@@ -8,6 +8,7 @@ import { plainToClass, classToPlain } from 'class-transformer';
 import IPetitionsService from './petitions.service.interface';
 import Petition from '../../model/petition';
 import PetitionDetails from '../../model/petition-details';
+import NewPetitionResponse from '../../model/response/new-petition-response';
 
 
 @Injectable()
@@ -30,9 +31,11 @@ export class MockPetitionsService implements IPetitionsService {
       .delay(1000);
   }
 
-  addPetition(petition: PetitionDetails): Observable<{}> {
+  addPetition(petition: PetitionDetails): Observable<NewPetitionResponse> {
     console.log('sending petition:', classToPlain(petition));
-    return Observable.empty()
+    return this.http.get(`assets/mocks/new-petition-response.json`)
+      .map((response: Response) => response.json())
+      .map(res => plainToClass(NewPetitionResponse, res as Object))
       .delay(1000);
   }
 

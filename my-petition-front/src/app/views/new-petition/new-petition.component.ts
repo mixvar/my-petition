@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import IMarkdownService from '../../services/markdown/markdown.service.interface';
-import PetitionDetails from '../../model/petition-details';
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import IUserService from '../../services/user/user.service.interface';
 import INotificationsService from '../../services/notifications/notifications.service.interface';
+import PetitionDetails from '../../model/petition-details';
+import NewPetitionResponse from '../../model/response/new-petition-response';
 
 
 @Component({
@@ -35,11 +37,17 @@ export class NewPetitionComponent implements OnInit {
     return (valid) ? null : { invalidTags: true };
   }
 
+  private static checkboxValidator(control: FormControl): { [errorName: string]: boolean } {
+    const valid: boolean =  !!control.value;
+    return (valid) ? null : { required: true };
+  }
+
   constructor(private markdownService: IMarkdownService,
               private petitionsService: IPetitionsService,
               private userService: IUserService,
               private fb: FormBuilder,
-              private notificationsService: INotificationsService) {
+              private notificationsService: INotificationsService,
+              private router: Router) {
 
     this.form = fb.group({
       title: ['', Validators.required],
@@ -47,6 +55,7 @@ export class NewPetitionComponent implements OnInit {
       addressee: ['', Validators.required],
       tags: ['', Validators.compose([Validators.required, NewPetitionComponent.hashTagValidator])],
       text: ['', Validators.required],
+      isSigned: [false, NewPetitionComponent.checkboxValidator],
     });
   }
 
@@ -71,15 +80,15 @@ export class NewPetitionComponent implements OnInit {
     this.sending = true;
     this.petitionsService.addPetition(petition)
       .subscribe(
-        () => {},
+        (response: NewPetitionResponse) => {
+          this.sending = false;
+          this.notificationsService.success('petition created successfully!');
+          this.router.navigate([`/petitions/${response.petitionId}`]);
+        },
         (error) => {
           this.sending = false;
           console.error('error while adding new petition!', error);
           this.notificationsService.error(error.message);
-        },
-        () => {
-          this.sending = false;
-          this.notificationsService.success('petition created successfully!');
         }
       );
   }

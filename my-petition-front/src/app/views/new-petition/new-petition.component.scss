@@ -4,7 +4,7 @@
 #newPetitionView {
   padding-bottom: $spacing;
 
-  .header {
+  .head {
     text-align: center;
     @include fontStyle(light);
     color: $colorThemePrimary;
@@ -24,6 +24,12 @@
 
   .hint {
     color: $colorThemeAccent;
+    a {
+      color: inherit;
+      &:hover {
+        color: $colorThemePrimary;
+      }
+    }
   }
 
   .textTabsContainer {
@@ -46,6 +52,13 @@
       padding: $spacing;
       min-height: 300px;
     }
+  }
+
+  .checkBoxContainer {
+    width: 100%;
+    text-align: center;
+    min-height: 43px;
+    margin-bottom: $spacing;
   }
 
   #submitButton {
