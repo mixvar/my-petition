@@ -107,12 +107,26 @@ body {
 
 
 /* ngMaterial snackBar */
-.snack-err {
-  background: darken(rgba(red, 0.8), 10) !important;
+
+.snack-message {
   .mat-simple-snackbar {
     color: black;
     font-size: 19px;
   }
+}
+.snack-success {
+  @extend .snack-message;
+  background: (rgba(#38eb22, 0.8)) !important;
+}
+
+.snack-info {
+  @extend .snack-message;
+  background: (rgba(#235dff, 0.8)) !important;
+}
+
+.snack-error {
+  @extend .snack-message;
+  background: darken(rgba(red, 0.8), 10) !important;
 }
 
 .snack-no-action {

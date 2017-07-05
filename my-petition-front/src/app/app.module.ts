@@ -34,6 +34,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import IMarkdownService from './services/markdown/markdown.service.interface';
 import { MarkdownService } from './services/markdown/markdown.service';
 import { AuthGuard } from './guards/auth.guard';
+import INotificationsService from './services/notifications/notifications.service.interface';
+import { NotificationsService } from './services/notifications/notifications.service';
 
 
 @NgModule({
@@ -69,6 +71,7 @@ import { AuthGuard } from './guards/auth.guard';
     { provide: IUserService, useClass: UserService },
     { provide: IPetitionsService, useClass: MockPetitionsService },
     { provide: IMarkdownService, useClass: MarkdownService },
+    { provide: INotificationsService, useClass: NotificationsService },
     AuthGuard,
   ],
   bootstrap: [AppComponent]

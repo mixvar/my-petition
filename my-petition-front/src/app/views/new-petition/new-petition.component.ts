@@ -5,6 +5,7 @@ import IMarkdownService from '../../services/markdown/markdown.service.interface
 import PetitionDetails from '../../model/petition-details';
 import IPetitionsService from '../../services/petitions/petitions.service.interface';
 import IUserService from '../../services/user/user.service.interface';
+import INotificationsService from '../../services/notifications/notifications.service.interface';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class NewPetitionComponent implements OnInit {
   constructor(private markdownService: IMarkdownService,
               private petitionsService: IPetitionsService,
               private userService: IUserService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private notificationsService: INotificationsService) {
 
     this.form = fb.group({
       title: ['', Validators.required],
@@ -73,10 +75,11 @@ export class NewPetitionComponent implements OnInit {
         (error) => {
           this.sending = false;
           console.error('error while adding new petition!', error);
+          this.notificationsService.error(error.message);
         },
         () => {
           this.sending = false;
-          console.log('petition created successfully!');
+          this.notificationsService.success('petition created successfully!');
         }
       );
   }
