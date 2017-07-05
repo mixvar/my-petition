@@ -4,17 +4,6 @@
 #newPetitionView {
   padding: $spacing;
 
-  #mdEditor {
-    margin: $spacing;
-    textarea {
-      padding: $spacing/2;
-      width: 100%;
-      max-width: 100%;
-      min-height: 300px;
-      border: 1px solid $colorThemePrimary;
-    }
-  }
-
   #mdView {
     margin: $spacing;
     padding: $spacing;
@@ -42,6 +31,14 @@
 
     md-input-container {
       width: 100%;
+    }
+  }
+
+  .mdEditor {
+    padding: $spacing;
+    @include shadow(2px, rgba(black, 0.25));
+    textarea {
+      min-height: 150px;
     }
   }
 

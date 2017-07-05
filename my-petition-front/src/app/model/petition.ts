@@ -29,7 +29,7 @@ class Petition {
 
   public getFormattedTags(): string {
     return this.tags.reduce((acc, tag, i) => (
-      (i) ? `${acc}, ${tag}` : tag
+      (i) ? `${acc} | ${tag}` : tag
     ), '');
   }
 

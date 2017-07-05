@@ -22,8 +22,8 @@ $colorFB: #3b5998;
   box-shadow: 0 3px 10px 3px rgba(0, 0, 0, 0.7);
 }
 
-@mixin shadow($size) {
-  box-shadow: $size $size $size*4 0 #292929, -1*$size -1*$size $size*4 0 #292929, -1*$size $size $size*4 0 #292929, $size -1*$size $size*4 0 #292929;
+@mixin shadow($size, $color: #292929) {
+  box-shadow: $size $size $size*4 0 $color, -1*$size -1*$size $size*4 0 $color, -1*$size $size $size*4 0 $color, $size -1*$size $size*4 0 $color;
 }
 
 @mixin fontStyle($style) {

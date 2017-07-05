@@ -19,12 +19,26 @@ class PetitionDetails extends Petition {
   public signs: Person[];
 
 
-  public initializeNewPetition(user: Person) {
-    this.creationDate = new Date().getTime();
-    this.owner = user;
-    this.signCount = 1;
-    this.signs = new Array(user);
+  public static newPetition(user: Person,
+                            title: string,
+                            description: string,
+                            addressee: string,
+                            tags: Array<string>,
+                            serializedText: string): PetitionDetails {
+    const petition = new PetitionDetails();
+
+    petition.creationDate = new Date().getTime();
+    petition.owner = user;
+    petition.signCount = 1;
+    petition.signs = new Array(user);
+    petition.title = title;
+    petition.description = description;
+    petition.addressee = addressee;
+    petition.tags = tags;
+    petition.text = serializedText;
+    return petition;
   }
+
 }
 
 export default PetitionDetails;

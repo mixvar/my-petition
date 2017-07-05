@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import IMarkdownService from '../../services/markdown/markdown.service.interface';
 import PetitionDetails from '../../model/petition-details';
@@ -13,38 +14,60 @@ import IUserService from '../../services/user/user.service.interface';
 })
 export class NewPetitionComponent implements OnInit {
 
-  rawTags: string;
-  rawText: string;
-  petition: PetitionDetails = new PetitionDetails();
+  form: FormGroup;
   sending: boolean = false;
+
+  private static rawTagsToArray(tags: string): Array<string> {
+    if (!tags || tags === '') {
+      return [];
+    }
+    return tags.split(/(\s+)/)
+      .filter(e => e.trim().length > 0);
+  }
+
+  private static hashTagValidator(control: FormControl): { [errorName: string]: boolean } {
+    const valid = NewPetitionComponent.rawTagsToArray(control.value)
+      .reduce((areValid, tag) =>
+          (areValid && /^#\S+$/.test(tag)),
+        true);
+
+    return (valid) ? null : { invalidTags: true };
+  }
 
   constructor(private markdownService: IMarkdownService,
               private petitionsService: IPetitionsService,
-              private userService: IUserService) { }
+              private userService: IUserService,
+              private fb: FormBuilder) {
+
+    this.form = fb.group({
+      title: ['', Validators.required],
+      description: ['', Validators.required],
+      addressee: ['', Validators.required],
+      tags: ['', Validators.compose([Validators.required, NewPetitionComponent.hashTagValidator])],
+      text: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {
   }
 
   getParsedText(): string {
-    return this.markdownService.parse(this.rawText);
+    return this.markdownService.parse(this.form.value.text);
   }
 
-  onSubmit() {
-    this.petition.text = this.markdownService.serialize(this.rawText);
-    if (this.validateTags()) {
-      this.petition.tags = this.rawTagsToArray();
+  onSubmit(values: any) {
+    const { title, description, addressee, tags, text } = values;
+    const user = this.userService.getUser();
+    const serializedText = this.markdownService.serialize(text);
+    const tagsArray = NewPetitionComponent.rawTagsToArray(tags);
 
-      this.petition.initializeNewPetition(this.userService.getUser());
-      this.sendPetition();
-
-    } else {
-      console.warn('invalid tags!', this.rawTags);
-    }
+    const petition = PetitionDetails.newPetition(user, title, description, addressee, tagsArray, serializedText);
+    this.sendPetition(petition);
   }
 
-  private sendPetition() {
+  private sendPetition(petition: PetitionDetails) {
     this.sending = true;
-    this.petitionsService.addPetition(this.petition)
+    this.petitionsService.addPetition(petition)
       .subscribe(
         () => {},
         (error) => {
@@ -56,22 +79,6 @@ export class NewPetitionComponent implements OnInit {
           console.log('petition created successfully!');
         }
       );
-  }
-
-  private rawTagsToArray() {
-    if (!this.rawTags) {
-      return [];
-    }
-
-    return this.rawTags.split(/(\s+)/)
-      .filter(e => e.trim().length > 0);
-  }
-
-  private validateTags(): boolean {
-    return this.rawTagsToArray()
-      .reduce((areValid, tag) =>
-          (areValid && /^#\S+$/.test(tag)),
-        true);
   }
 
 }

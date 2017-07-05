@@ -1,23 +1,26 @@
 <div id="newPetitionView">
 
   <div class="hAlign">
-    <form #petitionForm="ngForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
 
       <div class="inputContainer">
         <md-input-container>
-          <input mdInput placeholder="title" name="title" [(ngModel)]="petition.title">
+          <input mdInput placeholder="title" [formControl]="form.controls.title">
+          <md-error>This field is required</md-error>
         </md-input-container>
       </div>
 
       <div class="inputContainer">
         <md-input-container>
-          <input mdInput placeholder="description" name="description" [(ngModel)]="petition.description">
+          <input mdInput placeholder="description" [formControl]="form.controls.description">
+          <md-error>This field is required</md-error>
         </md-input-container>
       </div>
 
       <div class="inputContainer">
         <md-input-container>
-          <input mdInput placeholder="addressee" name="addressee" [(ngModel)]="petition.addressee">
+          <input mdInput placeholder="addressee" [formControl]="form.controls.addressee">
+          <md-error>This field is required</md-error>
         </md-input-container>
       </div>
 
@@ -26,20 +29,41 @@
           <input mdInput
                  title="space separated values starting with '#'"
                  placeholder="tags"
-                 name="tags"
-                 [(ngModel)]="rawTags"
-          >
+                 [formControl]="form.controls.tags">
+          <md-hint>Space separated values beelining with '#'</md-hint>
+          <md-error *ngIf="form.controls.tags.hasError('required')">
+            This field is required
+          </md-error>
+          <md-error *ngIf="form.controls.tags.hasError('invalidTags')">
+            Invalid hash tag format! Example value: '#tagOne #tagTwo'
+          </md-error>
         </md-input-container>
       </div>
 
-      <div id="mdEditor">
-        <textarea title="text" name="text" [(ngModel)]="rawText"></textarea>
+      <div class="inputContainer mdEditor">
+        <md-input-container>
+          <textarea
+            mdInput
+            mdTextareaAutosize [mdAutosizeMinRows]="1"
+            placeholder="petition content"
+            [formControl]="form.controls.text">
+          </textarea>
+          <md-hint>The actual content of your petition. Use Markdown syntax for formatting.</md-hint>
+          <md-error>This field is required</md-error>
+        </md-input-container>
       </div>
 
       <div id="mdView" class="markdown" [innerHtml]="getParsedText()"></div>
 
       <div id="submitButton">
-        <button type="submit" md-raised-button color="primary">Submit!</button>
+        <button
+          type="submit"
+          md-raised-button
+          [disabled]="form.pristine || form.invalid"
+          color="primary"
+        >
+          <span>Submit!</span>
+        </button>
       </div>
 
     </form>
