@@ -12,7 +12,8 @@ import NewPetitionResponse from '../../model/response/new-petition-response';
 import IUserService from '../user/user.service.interface';
 
 
-const apiUrl = 'http://localhost:8733/Design_Time_Addresses/Service1';
+// const apiUrl = 'http://localhost:8733/Design_Time_Addresses/Service1';
+const apiUrl = '/api';
 
 @Injectable()
 export class PetitionsService implements IPetitionsService {
