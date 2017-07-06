@@ -79,7 +79,8 @@ import { SignsDialogComponent } from './views/petition-details/signs-dialog/sign
   ],
   providers: [
     { provide: IUserService, useClass: UserService },
-    { provide: IPetitionsService, useClass: MockPetitionsService },
+    // { provide: IPetitionsService, useClass: MockPetitionsService },
+    { provide: IPetitionsService, useClass: PetitionsService },
     { provide: IMarkdownService, useClass: MarkdownService },
     { provide: INotificationsService, useClass: NotificationsService },
     AuthGuard,

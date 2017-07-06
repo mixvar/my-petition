@@ -12,7 +12,7 @@ abstract class IPetitionsService {
 
   abstract addPetition(petition: PetitionDetails): Observable<NewPetitionResponse>;
 
-  abstract signPetition(petitionId: number): Observable<{}>;
+  abstract signPetition(petitionId: number): Observable<any>;
 }
 
 export default IPetitionsService;

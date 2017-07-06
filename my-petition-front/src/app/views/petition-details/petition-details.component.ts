@@ -103,18 +103,17 @@ export class PetitionDetailsComponent implements OnInit, OnDestroy {
   private doSign(): void {
     this.fetching = true;
     this.petitionsService.signPetition(this.petition.id).subscribe(
-      () => {},
-      (error) => {
-        this.fetching = false;
-        console.error(error);
-        this.notificationsService.error('Could not sign petition - unexpected error!');
-      },
       () => {
         this.fetching = false;
         this.notificationsService.success('Petition signed!');
         this.petition.signs.push(this.userService.getUser());
         this.petition.signCount++;
-      }
+      },
+      (error) => {
+        this.fetching = false;
+        console.error(error);
+        this.notificationsService.error('Could not sign petition - unexpected error!');
+      },
     );
   }
 

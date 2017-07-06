@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
-import 'rxjs/add/observable/empty';
+import 'rxjs/add/observable/of';
 import { Http, Response } from '@angular/http';
 import { plainToClass, classToPlain } from 'class-transformer';
 
@@ -39,9 +39,9 @@ export class MockPetitionsService implements IPetitionsService {
       .delay(1000);
   }
 
-  signPetition(petitionId: number): Observable<{}> {
+  signPetition(petitionId: number): Observable<any> {
     console.log(`signing petition #${petitionId}`);
-    return Observable.empty().delay(1000);
+    return Observable.of('signed!').delay(1000);
   }
 
 }
